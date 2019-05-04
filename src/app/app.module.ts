@@ -1,3 +1,5 @@
+import { Progresso } from './progresso.service';
+import { Bd } from './bd.service';
 import { AutenticacaoGuard } from './autenticacao-guard.service';
 import { ROUTES } from './app.routes';
 import { Autenticacao } from './autenticacao.service';
@@ -14,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
 import { RouterModule } from '@angular/router';
+import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-publicacao.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    PublicacoesComponent
+    PublicacoesComponent,
+    IncluirPublicacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ Autenticacao, AutenticacaoGuard ],
+  providers: [ Autenticacao, AutenticacaoGuard, Bd, Progresso ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
